@@ -1,0 +1,8 @@
+find <caminho> -iname <nome_ou_padrao_a_procurar> -type <tipo_de_arquivo> -size <tamanho_do_arquivo> -exec ls -lah {} \;
+  
+  ex: find ~/Documentos -iname "*bash*.sh" -type f -size +1M
+  Localiza arquivos do tipo arquvio, que tenham bash no nome e terminem com .sh e maior que 1 mega
+
+------------------------------------------------------------------------
+
+
