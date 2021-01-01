@@ -11,7 +11,7 @@ MENSAGEM_USO="
     -v - Versão
     -s - Ordenar a saída
 "
-VERSAO="v1.1"
+VERSAO="v1.3"
 CHAVE_ORDENA=0
 CHAVE_MAIUSCULO=0
 
@@ -28,15 +28,19 @@ CHAVE_MAIUSCULO=0
 # [ "$1" = "-v" ] && echo "$VERSAO" && exit 0
 # [ "$1" = "-s" ] && echo "$USUARIOS" | sort && exit 0
 
-case "$1" in 
-  -h) echo "$MENSAGEM_USO" && exit 0 ;;
-  -v) echo "$VERSAO" && exit 0       ;;
-  -s) CHAVE_ORDENA=1                 ;;
-  -m) CHAVE_MAIUSCULO=1              ;;
-   *) echo "$USUARIOS"               ;;
-esac
+while test -n "$1"
+do
+  case "$1" in 
+    -h) echo "$MENSAGEM_USO" && exit 0                      ;;
+    -v) echo "$VERSAO" && exit 0                            ;;
+    -s) CHAVE_ORDENA=1                                      ;;
+    -m) CHAVE_MAIUSCULO=1                                   ;;
+     *) echo "Opção inválida, use -h para ajuda." && exit 1 ;;
+  esac
+  shift
+done
 
-# echo "$USUARIOS"
+[ $CHAVE_ORDENA -eq 1 ] && USUARIOS=$(echo "$USUARIOS" | sort )
+[ $CHAVE_MAIUSCULO -eq 1 ] && USUARIOS=$(echo "$USUARIOS" | tr [a-z] [A-Z] )
 
-[ $CHAVE_ORDENA -eq 1 ] && echo "$USUARIOS" | sort && exit 0
-[ $CHAVE_MAIUSCULO -eq 1 ] && echo "$USUARIOS" | tr [a-z] [A-Z]
+echo "$USUARIOS"
