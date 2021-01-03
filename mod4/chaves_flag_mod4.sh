@@ -24,6 +24,7 @@ CHAVE_MAIUSCULO=0
 # EXECUCAO
 # -------------------------------------------------------------
 
+set -x
 while test -n "$1"
 do
   case "$1" in 
@@ -35,6 +36,7 @@ do
   esac
   shift
 done
+set +x
 
 [ $CHAVE_ORDENA -eq 1 ] && USUARIOS=$(echo "$USUARIOS" | sort )
 [ $CHAVE_MAIUSCULO -eq 1 ] && USUARIOS=$(echo "$USUARIOS" | tr [a-z] [A-Z] )

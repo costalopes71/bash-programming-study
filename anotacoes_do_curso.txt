@@ -4,5 +4,17 @@ find <caminho> -iname <nome_ou_padrao_a_procurar> -type <tipo_de_arquivo> -size 
   Localiza arquivos do tipo arquvio, que tenham bash no nome e terminem com .sh e maior que 1 mega
 
 ------------------------------------------------------------------------
+DEBUG DE CODIGO BASH
+
+  - opcao 1: usando o comando bash com as flags -xv
+      Ex: bash -xv script.sh
+      Apresenta o debug do código todo no terminal
+
+  - opcao 2: usando set -x no código
+      Ex:
+        set -x
+        linha(s) a serem debugadas
+        set +x
+      Apresenta o debug do código apenas das linhas que estão entre o set -x e set +x
 
 
