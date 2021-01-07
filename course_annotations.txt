@@ -18,3 +18,9 @@ DEBUG DE CODIGO BASH
       Apresenta o debug do código apenas das linhas que estão entre o set -x e set +x
 
 
+-----------------------------------------------------------------------
+NOTIFICACOES
+
+    notify-send "Esta é uma notificação marota, ela abre um pop up de alerta no linux."
+    Abre uma notificação pop up no sistema com o texto inserido
+
