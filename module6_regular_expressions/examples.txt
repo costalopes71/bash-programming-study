@@ -1,0 +1,15 @@
+Finding a brazilian car lisence plate (3 letters - and 4 digits)
+  Ex: HFD-2039
+      ag "[A-Z]{3}-[0-9]{4}"
+
+Expressoes regulares extendidas:
+
+  para usar no grep precisa do parametro -e ou usar o comando egrep
+
+  {qtd_de_caracters_minima,qtd_de_caracters_maxima}
+  Ex:
+    grep -e "^.{50,}$"  --> filtra linha que comeca com qqr coisa, tem 50 ou mais caracteres.
+    grep -e "^.{50,80}$"  --> filtra linha que comeca com qqr coisa e tem de 50 a 80 caracteres"
+
+  |  --> ou
+  egrep "^joao|^root" --> filtra qqr linha que comeca com joao ou root
