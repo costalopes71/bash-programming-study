@@ -24,3 +24,14 @@ NOTIFICACOES
     notify-send "Esta é uma notificação marota, ela abre um pop up de alerta no linux."
     Abre uma notificação pop up no sistema com o texto inserido
 
+-----------------------------------------------------------------------
+SED
+
+  s/ -> substitui
+  sed 's/inicio_do_texto_a_substituir.*fim_do_texto_a_substitui/texto_a_por_no_lugar/'
+
+  ; --> concatena expressoes
+  sed 's/inicio_substituicao.*fim_substituicao/texto_novo/;s/texto_a_substituir.*//'
+
+  \ --> caracter de escape. Ex: escapar barra \/
+
