@@ -2,4 +2,4 @@
 UPPERCASE_FLAG=0
 
 # 0 disable 1 enable
-COLORS_FLAG=0
+COLORS_FLAG=1

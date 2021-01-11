@@ -29,8 +29,8 @@ ParseFlags() {
 	local value="$( echo $1 | cut -d = -f 2 )"
 
 	case "$flag" in
-		COLORS_FLAG)    COLORS_FLAG="$value"    ;;
-		UPPERCASE_FLAG) UPPERCASE_FLAG="$value" ;;
+		COLORS_FLAG)    COLORS_FLAG=$value    ;;
+		UPPERCASE_FLAG) UPPERCASE_FLAG=$value ;;
 	esac
 
 }
@@ -46,5 +46,7 @@ do
 	ParseFlags "$line"
 done < "$CONF_FILE"
 
-echo "Valor colors: $COLORS_FLAG"
-echo "Valor uppercase: $UPPERCASE_FLAG"
+[ $UPPERCASE_FLAG -eq 1 ] && MESSAGE="$( echo -e $MESSAGE | tr [a-z] [A-Z] )"
+[ $COLORS_FLAG -eq 1 ] && MESSAGE="$( echo ${GREEN}$MESSAGE )"
+
+echo -e "$MESSAGE"
